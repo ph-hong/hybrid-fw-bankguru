@@ -2,3 +2,5 @@
 /browserDrivers/
 /libraries/
 /test-output/
+/.project
+/.classpath
