@@ -15,8 +15,8 @@ public class HomePageObject extends BasePage {
 	}
 
 	public boolean isWelcomMessageDisplayed() {
-		waitForElementVisible(driver, HomePageUI.WELCOM_MSG_TEXT);
-		return isElementDisplayedInDOM(driver, HomePageUI.WELCOM_MSG_TEXT);
+		waitForElementVisible(driver, HomePageUI.WELCOME_MSG_TEXT);
+		return isElementDisplayedInDOM(driver, HomePageUI.WELCOME_MSG_TEXT);
 	}
 
 	public NewCustomerPageObject clickNewCustomer() {
