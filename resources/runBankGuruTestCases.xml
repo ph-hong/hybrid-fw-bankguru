@@ -8,7 +8,7 @@
 		</parameter>
 
 		<classes>
-			<class name="com.bankguru.customer.New_Customer_NC01_NC15" />
+			<class name="com.bankguru.customer.New_Customer_NC16_NC17" />
 		</classes>
 
 	</test>
