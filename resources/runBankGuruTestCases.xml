@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
 <suite parallel="false" name="Bank Guru">
 
-	<test name="Run on Chrome browser">
-		<parameter name="browser" value='chrome' />
+	<test name="Run on CHROME browser">
+		<parameter name="browser" value="chrome">
+		</parameter>
+
 		<classes>
-			<class name="com.bankguru.login.Customer_Login" />
+			<class name="com.bankguru.customer.New_Customer" />
 		</classes>
+
 	</test>
 
-</suite> 
+<!-- 	<test name="Run on FIREFOX browser">
+		<parameter name="browser" value="firefox">
+		</parameter>
+
+		<classes>
+			<class name="com.bankguru.customer.New_Customer" />
+		</classes>
+
+	</test> -->
+
+</suite>
+
+
 

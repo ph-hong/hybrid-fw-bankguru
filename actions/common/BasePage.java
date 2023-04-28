@@ -1,8 +1,10 @@
 package common;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -46,27 +48,35 @@ public class BasePage {
 		element.clear();
 		element.sendKeys(valueToInput);
 	}
-	
+
 	public String getCurrentUrl(WebDriver driver) {
 		return driver.getCurrentUrl();
 	}
-	
+
 	public String getPaeTitle(WebDriver driver) {
 		return driver.getTitle();
 	}
-	
+
 	public String getElementText(WebDriver driver, String locator) {
 		return getWebElement(driver, locator).getText().trim();
 	}
-	
+
 	public void clickToElement(WebDriver driver, String locator) {
 		getWebElement(driver, locator).click();
 	}
-	
+
 	public boolean isElementDisplayedInDOM(WebDriver driver, String locator) {
 		return getWebElement(driver, locator).isDisplayed();
 	}
-	
+
+	/*
+	 * User Action
+	 */
+
+	public void pressKeyToElement(WebDriver driver, String locator, Keys key) {
+		Actions action = new Actions(driver);
+		action.sendKeys(getWebElement(driver, locator), key).perform();
+	}
 
 	/*
 	 * Wait
