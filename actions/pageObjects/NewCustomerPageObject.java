@@ -13,52 +13,18 @@ public class NewCustomerPageObject extends BasePage {
 		this.driver = driver;
 	}
 
-	/*
-	 * Customer
-	 */
-	public void tabToCustomer() {
-		waitForElementVisible(driver, NewCustomerPageUI.CUSTOMER_NAME_TEXTBOX);
-		pressKeyToElement(driver, NewCustomerPageUI.CUSTOMER_NAME_TEXTBOX, Keys.TAB);
+	public void tabToTextBoxByName(String textboxName) {
+		waitForElementVisible(driver, NewCustomerPageUI.DYNAMIC_TEXTBOX_BY_NAME, textboxName);
+		pressKeyToElement(driver, NewCustomerPageUI.DYNAMIC_TEXTBOX_BY_NAME, Keys.TAB, textboxName);
 	}
 
-	public void inputValueToCustomerName(String value) {
-		waitForElementVisible(driver, NewCustomerPageUI.CUSTOMER_NAME_TEXTBOX);
-		sendKeyToElement(driver, NewCustomerPageUI.CUSTOMER_NAME_TEXTBOX, value);
+	public void inputToTextboxByName(String textboxName, String valueToInput) {
+		waitForElementVisible(driver, NewCustomerPageUI.DYNAMIC_TEXTBOX_BY_NAME, textboxName);
+		sendKeyToElement(driver, NewCustomerPageUI.DYNAMIC_TEXTBOX_BY_NAME, valueToInput, textboxName);
 	}
 
-	public String getValidateCustomerNameMsg() {
-		waitForElementVisible(driver, NewCustomerPageUI.VALIDATE_CUSTOMER_NAME_MSG);
-		return getElementText(driver, NewCustomerPageUI.VALIDATE_CUSTOMER_NAME_MSG);
-	}
-
-	/*
-	 * Date of birth
-	 */
-	public void tabToDateOfBirth() {
-		waitForElementVisible(driver, NewCustomerPageUI.DATE_OF_BIRTH_TEXTBOX);
-		pressKeyToElement(driver, NewCustomerPageUI.DATE_OF_BIRTH_TEXTBOX, Keys.TAB);
-	}
-
-	public String getValidateDateOfBirthMsg() {
-		waitForElementVisible(driver, NewCustomerPageUI.VALIDATE_DATE_OF_BIRTH_MSG);
-		return getElementText(driver, NewCustomerPageUI.VALIDATE_DATE_OF_BIRTH_MSG);
-	}
-
-	/*
-	 * Address
-	 */
-	public void tabToAddress() {
-		waitForElementVisible(driver, NewCustomerPageUI.ADDRESS_TEXTBOX);
-		pressKeyToElement(driver, NewCustomerPageUI.ADDRESS_TEXTBOX, Keys.TAB);
-	}
-
-	public void inputValueToAddress(String value) {
-		waitForElementVisible(driver, NewCustomerPageUI.ADDRESS_TEXTBOX);
-		sendKeyToElement(driver, NewCustomerPageUI.ADDRESS_TEXTBOX, value);
-	}
-
-	public String getValidateAddressMsg() {
-		waitForElementVisible(driver, NewCustomerPageUI.VALIDATE_ADDRESS_MSG);
-		return getElementText(driver, NewCustomerPageUI.VALIDATE_ADDRESS_MSG);
+	public String getValidateMsgByName(String textboxName) {
+		waitForElementVisible(driver, NewCustomerPageUI.DYNAMIC_VALAIDATE_MSG, textboxName);
+		return getElementText(driver, NewCustomerPageUI.DYNAMIC_VALAIDATE_MSG, textboxName);
 	}
 }

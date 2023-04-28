@@ -17,6 +17,13 @@ public class BasePage {
 		driver.get(pageUrl);
 	}
 
+	public String castRestParameter(String locator, String... dynamicLocator) {
+		System.out.println("Locator before adding value: " + locator);
+		locator = String.format(locator, (Object[]) dynamicLocator);
+		System.out.println("Locator after adding value: " + locator);
+		return locator;
+	}
+
 	/*
 	 * Web Element
 	 */
@@ -49,6 +56,12 @@ public class BasePage {
 		element.sendKeys(valueToInput);
 	}
 
+	public void sendKeyToElement(WebDriver driver, String locator, String valueToInput, String... dynamicLocator) {
+		WebElement element = getWebElement(driver, castRestParameter(locator, dynamicLocator));
+		element.clear();
+		element.sendKeys(valueToInput);
+	}
+
 	public String getCurrentUrl(WebDriver driver) {
 		return driver.getCurrentUrl();
 	}
@@ -59,6 +72,10 @@ public class BasePage {
 
 	public String getElementText(WebDriver driver, String locator) {
 		return getWebElement(driver, locator).getText().trim();
+	}
+
+	public String getElementText(WebDriver driver, String locator, String... dynamicLocator) {
+		return getWebElement(driver, castRestParameter(locator, dynamicLocator)).getText().trim();
 	}
 
 	public void clickToElement(WebDriver driver, String locator) {
@@ -78,6 +95,11 @@ public class BasePage {
 		action.sendKeys(getWebElement(driver, locator), key).perform();
 	}
 
+	public void pressKeyToElement(WebDriver driver, String locator, Keys key, String... dynamicLocator) {
+		Actions action = new Actions(driver);
+		action.sendKeys(getWebElement(driver, castRestParameter(locator, dynamicLocator)), key).perform();
+	}
+
 	/*
 	 * Wait
 	 */
@@ -85,6 +107,11 @@ public class BasePage {
 	public void waitForElementVisible(WebDriver driver, String locator) {
 		new WebDriverWait(driver, longTimeout)
 				.until(ExpectedConditions.visibilityOfElementLocated(getByLocator(locator)));
+	}
+
+	public void waitForElementVisible(WebDriver driver, String locator, String... dynamicLocator) {
+		new WebDriverWait(driver, longTimeout).until(ExpectedConditions
+				.visibilityOfElementLocated(getByLocator(castRestParameter(locator, dynamicLocator))));
 	}
 
 	public void waitForElementClickable(WebDriver driver, String locator) {
