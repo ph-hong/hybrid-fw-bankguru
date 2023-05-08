@@ -47,7 +47,7 @@ public class New_Customer_NC16_NC31 extends BaseTest {
 	/*
 	 * Verify PIN field
 	 */
-	
+
 	@Test
 	public void NC16_PIN_cannot_be_blank() {
 		newCustomerPage = homePage.clickNewCustomer();
@@ -99,7 +99,7 @@ public class New_Customer_NC16_NC31 extends BaseTest {
 	/*
 	 * Verify Mobile Number field
 	 */
-	
+
 	@Test
 	public void NC22_Mobile_Number_cannot_be_blank() {
 		newCustomerPage = homePage.clickNewCustomer();
@@ -187,11 +187,11 @@ public class New_Customer_NC16_NC31 extends BaseTest {
 	/*
 	 * Verify Reset Button
 	 */
-	
+
 	@Test
 	public void NC30_All_New_Customer_data_are_reset() {
 		newCustomerPage = homePage.clickNewCustomer();
-		
+
 		newCustomerPage.inputToTextboxByName("name", customerData.getCustomerName());
 		newCustomerPage.inputToTextboxByName("dob", customerData.getDateOfBirth());
 		newCustomerPage.inputToTextboxByName("addr", customerData.getAddress());
@@ -217,7 +217,7 @@ public class New_Customer_NC16_NC31 extends BaseTest {
 	/*
 	 * Register New Customer Successfully!
 	 */
-	
+
 	@Test
 	public void NC31_Add_new_customer_successfully() {
 		newCustomerPage = homePage.clickNewCustomer();
@@ -236,8 +236,8 @@ public class New_Customer_NC16_NC31 extends BaseTest {
 		Assert.assertEquals(newCustomerPage.getRegisterMsg(), "Customer Registered Successfully!!!");
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void afterClass() {
-		driver.quit();
+		closeBrowserDriver();
 	}
 }
