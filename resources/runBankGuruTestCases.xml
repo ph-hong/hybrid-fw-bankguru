@@ -9,7 +9,7 @@
 
 		<classes>
 			<class name="com.bankguru.com.Common_New_Customer" />
-			<class name="com.bankguru.customer.Edit_Customer_EC01_EC11" />
+			<class name="com.bankguru.customer.Edit_Customer_EC12_EC15" />
 		</classes>
 
 	</test>
