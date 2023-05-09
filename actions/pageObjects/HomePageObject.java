@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import common.BasePage;
 import common.PageGeneratorManager;
 import pageUIs.HomePageUI;
-import pageUIs.LoginPageUI;
 
 public class HomePageObject extends BasePage {
 	WebDriver driver;
@@ -25,9 +24,15 @@ public class HomePageObject extends BasePage {
 		return PageGeneratorManager.getNewCustomerPage(driver);
 	}
 
-	public RegisterPageObject clickHereLink() {
-		waitForElementClickable(driver, LoginPageUI.HERE_LINK);
-		clickToElement(driver, LoginPageUI.HERE_LINK);
-		return PageGeneratorManager.getRegisterPage(driver);
+//	public RegisterPageObject clickHereLink() {
+//		waitForElementClickable(driver, LoginPageUI.HERE_LINK);
+//		clickToElement(driver, LoginPageUI.HERE_LINK);
+//		return PageGeneratorManager.getRegisterPage(driver);
+//	}
+
+	public EditCustomerPageObject clickEditCustomer() {
+		waitForElementClickable(driver, HomePageUI.EDIT_CUSTOMER_LINK);
+		clickToElement(driver, HomePageUI.EDIT_CUSTOMER_LINK);
+		return PageGeneratorManager.getEditCustomerPage(driver);
 	}
 }

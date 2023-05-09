@@ -81,6 +81,10 @@ public class BasePage {
 	public void clickToElement(WebDriver driver, String locator) {
 		getWebElement(driver, locator).click();
 	}
+	
+	public void clickToElement(WebDriver driver, String locator, String... dynamicLocator) {
+		getWebElement(driver, castRestParameter(locator, dynamicLocator)).click();
+	}
 
 	public boolean isElementDisplayedInDOM(WebDriver driver, String locator) {
 		return getWebElement(driver, locator).isDisplayed();
@@ -117,6 +121,11 @@ public class BasePage {
 	public void waitForElementClickable(WebDriver driver, String locator) {
 		new WebDriverWait(driver, longTimeout)
 				.until(ExpectedConditions.visibilityOfElementLocated(getByLocator(locator)));
+	}
+
+	public void waitForElementClickable(WebDriver driver, String locator, String... dynamicLocator) {
+		new WebDriverWait(driver, longTimeout).until(ExpectedConditions
+				.visibilityOfElementLocated(getByLocator(castRestParameter(locator, dynamicLocator))));
 	}
 
 	private long longTimeout = 20;

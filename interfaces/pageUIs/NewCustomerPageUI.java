@@ -9,4 +9,6 @@ public class NewCustomerPageUI {
 	public static final String SUBMIT_BTN = "NAME=sub";
 
 	public static final String REGISTER_SUCCESSFUL_MSG = "XPATH=//table[@id='customer']//p[@class='heading3']";
+	
+	public static final String CUSTOMER_ID_TEXTBOX = "XPATH=//td[text()='Customer ID']//following-sibling::td";
 }

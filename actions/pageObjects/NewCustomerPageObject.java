@@ -47,4 +47,9 @@ public class NewCustomerPageObject extends BasePage {
 		waitForElementClickable(driver, NewCustomerPageUI.SUBMIT_BTN);
 		clickToElement(driver, NewCustomerPageUI.SUBMIT_BTN);
 	}
+
+	public String getCustomerID() {
+		waitForElementVisible(driver, NewCustomerPageUI.CUSTOMER_ID_TEXTBOX);
+		return getElementText(driver, NewCustomerPageUI.CUSTOMER_ID_TEXTBOX);
+	}
 }
