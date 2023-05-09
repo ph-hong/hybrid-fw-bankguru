@@ -25,7 +25,7 @@ public class Common_New_Customer extends BaseTest {
 
 	@Parameters({ "browser" })
 	@BeforeTest
-	public void beforeClass(String browserName) {
+	public void beforeTest(String browserName) {
 		driver = getBrowserDriver(browserName);
 		customerData = CustomerData.getCustomerData();
 

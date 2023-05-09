@@ -37,22 +37,23 @@ public class Edit_Customer_EC01_EC11 extends BaseTest {
 		loginPage.inputPassword(Common_New_Customer.password);
 
 		homePage = loginPage.clickSubmitButton();
-
-		editCustomerPage = homePage.clickEditCustomer();
-		editCustomerPage.inputToTextboxByName("cusid", Common_New_Customer.customerID);
-		editCustomerPage.clickSubmitBtn();
 	}
 
 	@Test
 	public void EC01_Address_cannot_be_blank() {
+		editCustomerPage = homePage.clickEditCustomer();
+		editCustomerPage.inputToTextboxByName("cusid", Common_New_Customer.customerID);
+		editCustomerPage.clickSubmitBtn();
 		editCustomerPage.inputToTextboxByName("addr", "");
-
 		editCustomerPage.tabToTextBoxByName("city");
 		Assert.assertEquals(editCustomerPage.getValidateMsgByName("addr"), "Address Field must not be blank");
 	}
 
 	@Test
 	public void EC02_City_cannot_be_blank() {
+		editCustomerPage = homePage.clickEditCustomer();
+		editCustomerPage.inputToTextboxByName("cusid", Common_New_Customer.customerID);
+		editCustomerPage.clickSubmitBtn();
 		editCustomerPage.inputToTextboxByName("city", "");
 		editCustomerPage.tabToTextBoxByName("state");
 		Assert.assertEquals(editCustomerPage.getValidateMsgByName("city"), "City Field must not be blank");
@@ -60,6 +61,10 @@ public class Edit_Customer_EC01_EC11 extends BaseTest {
 
 	@Test
 	public void EC03_City_cannot_numeric() {
+		editCustomerPage = homePage.clickEditCustomer();
+		editCustomerPage.inputToTextboxByName("cusid", Common_New_Customer.customerID);
+		editCustomerPage.clickSubmitBtn();
+
 		editCustomerPage.inputToTextboxByName("city", "123");
 		Assert.assertEquals(editCustomerPage.getValidateMsgByName("city"), "Numbers are not allowed");
 
@@ -69,6 +74,10 @@ public class Edit_Customer_EC01_EC11 extends BaseTest {
 
 	@Test
 	public void EC04_City_cannot_have_special_characters() {
+		editCustomerPage = homePage.clickEditCustomer();
+		editCustomerPage.inputToTextboxByName("cusid", Common_New_Customer.customerID);
+		editCustomerPage.clickSubmitBtn();
+
 		editCustomerPage.inputToTextboxByName("city", "!@#");
 		Assert.assertEquals(editCustomerPage.getValidateMsgByName("city"), "Special characters are not allowed");
 
@@ -78,14 +87,20 @@ public class Edit_Customer_EC01_EC11 extends BaseTest {
 
 	@Test
 	public void EC05_State_cannot_be_blank() {
+		editCustomerPage = homePage.clickEditCustomer();
+		editCustomerPage.inputToTextboxByName("cusid", Common_New_Customer.customerID);
+		editCustomerPage.clickSubmitBtn();
 		editCustomerPage.inputToTextboxByName("state", "");
-
 		editCustomerPage.tabToTextBoxByName("state");
 		Assert.assertEquals(editCustomerPage.getValidateMsgByName("state"), "State must not be blank");
 	}
 
 	@Test
 	public void EC06_State_cannot_numeric() {
+		editCustomerPage = homePage.clickEditCustomer();
+		editCustomerPage.inputToTextboxByName("cusid", Common_New_Customer.customerID);
+		editCustomerPage.clickSubmitBtn();
+
 		editCustomerPage.inputToTextboxByName("state", "123");
 		Assert.assertEquals(editCustomerPage.getValidateMsgByName("state"), "Numbers are not allowed");
 
@@ -95,6 +110,10 @@ public class Edit_Customer_EC01_EC11 extends BaseTest {
 
 	@Test
 	public void EC07_State_cannot_have_special_characters() {
+		editCustomerPage = homePage.clickEditCustomer();
+		editCustomerPage.inputToTextboxByName("cusid", Common_New_Customer.customerID);
+		editCustomerPage.clickSubmitBtn();
+
 		editCustomerPage.inputToTextboxByName("state", "!@#");
 		Assert.assertEquals(editCustomerPage.getValidateMsgByName("state"), "Special characters are not allowed");
 
@@ -104,14 +123,20 @@ public class Edit_Customer_EC01_EC11 extends BaseTest {
 
 	@Test
 	public void EC08_PIN_cannot_be_blank() {
+		editCustomerPage = homePage.clickEditCustomer();
+		editCustomerPage.inputToTextboxByName("cusid", Common_New_Customer.customerID);
+		editCustomerPage.clickSubmitBtn();
 		editCustomerPage.inputToTextboxByName("pinno", "");
-
 		editCustomerPage.tabToTextBoxByName("telephoneno");
 		Assert.assertEquals(editCustomerPage.getValidateMsgByName("pinno"), "PIN Code must not be blank");
 	}
 
 	@Test
 	public void EC09_PIN_must_be_numeric() {
+		editCustomerPage = homePage.clickEditCustomer();
+		editCustomerPage.inputToTextboxByName("cusid", Common_New_Customer.customerID);
+		editCustomerPage.clickSubmitBtn();
+
 		editCustomerPage.inputToTextboxByName("pinno", "tpin");
 		Assert.assertEquals(editCustomerPage.getValidateMsgByName("pinno"), "Characters are not allowed");
 
@@ -121,16 +146,20 @@ public class Edit_Customer_EC01_EC11 extends BaseTest {
 
 	@Test
 	public void EC10_PIN_Code_must_have_6_Digits() {
+		editCustomerPage = homePage.clickEditCustomer();
+		editCustomerPage.inputToTextboxByName("cusid", Common_New_Customer.customerID);
+		editCustomerPage.clickSubmitBtn();
 		editCustomerPage.inputToTextboxByName("pinno", "1233");
-
 		editCustomerPage.tabToTextBoxByName("telephoneno");
 		Assert.assertEquals(editCustomerPage.getValidateMsgByName("pinno"), "PIN Code must have 6 Digits");
 	}
 
 	@Test
 	public void EC11_PIN_cannot_have_special_characters() {
+		editCustomerPage = homePage.clickEditCustomer();
+		editCustomerPage.inputToTextboxByName("cusid", Common_New_Customer.customerID);
+		editCustomerPage.clickSubmitBtn();
 		editCustomerPage.inputToTextboxByName("pinno", "123!@#");
-
 		editCustomerPage.tabToTextBoxByName("telephoneno");
 		Assert.assertEquals(editCustomerPage.getValidateMsgByName("pinno"), "Special characters are not allowed");
 	}
